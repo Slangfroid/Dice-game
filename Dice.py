@@ -1,27 +1,17 @@
-# The game is played with five dice.
-# The player is asked, "Roll dice?" at the beginning of each turn.
-# If the player answers "n" or no, the game is over.
-# If the player answers "y" or yes, the points are added to their score.
-# The player scores 100 points for each one that is rolled.
-# The player scores 50 points for each five that is rolled.
-# The dice values and player score are displayed on the screen.
-# If the player does not roll any ones or fives the game is over.
-# The program must include a README file.
-# The program must include class and method comments.
-# The program must have at least two classes.
-# The program must remain true to game play described in the overview.
-
 import random
+
+# Used to determine the amount of dice needed for the game. 
 class number_of_dice:
     x = 5
+# Used to determine the max number a di can roll.
 class max_sided_di:
     x = 6
 
-
+# Main() asks the user if they want to roll dice, and if they want to continue rolling dice.
 def main():
     score = 0
     roll = input('Roll dice? [y/n] ')
-    while roll == "y": 
+    while roll == "y" or roll == "Y": 
         roll_dice()
         get_score(score)
         if score == 0:
@@ -30,8 +20,9 @@ def main():
     
 
 dice_number = 0
-
 dice_rolls = []
+
+# Gets the values of the five dice rolled and stores them into the empty array dice_rolls. The array is emptied each time the function is used.
 def roll_dice():   
     total = number_of_dice()
     number_six = max_sided_di()
@@ -41,7 +32,7 @@ def roll_dice():
         dice_rolls.append(dice_number)
     return print(dice_rolls)
 
-
+# Gets the score of the dice by iterating through the dice_rolls array. y and z are variables to verify at least a five or a one was rolled.
 def get_score(score):
     for x in dice_rolls:
         if x == 5:
